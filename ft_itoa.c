@@ -63,7 +63,7 @@ char	*ft_itoa(int n)
 	else
 		abs_n = n;
 	jarisu = check_jarisu(abs_n);
-	num_str = (char *) malloc(jarisu + 2);
+	num_str = (char *) malloc(jarisu + 1 - i);
 	if (!num_str)
 		return (0);
 	if (i == -1)
