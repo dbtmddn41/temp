@@ -6,7 +6,7 @@
 #    By: slyu <slyu@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/10 14:25:00 by slyu              #+#    #+#              #
-#    Updated: 2022/01/10 14:25:04 by slyu             ###   ########.fr        #
+#    Updated: 2022/01/10 15:05:59 by slyu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,16 +66,18 @@ BONUSES = \
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUSES:.c=.o)
-
-OBJ_FILES = ${OBJS} ${BONUS_OBJS}
-
+ifdef WITH_BONUS
+	OBJ_FILES = ${OBJS} ${BONUS_OBJS}
+else
+	OBJ_FILES = ${OBJS}
+endif
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
 	ar crs $@ $(OBJ_FILES)
 
 bonus:
-	make all
+	make WITH_BONUS=1 all
 
 %.o: %.c
 	$(CC) $(CFLAGS) $< -o ${<:.c=.o} -I${INCS}
