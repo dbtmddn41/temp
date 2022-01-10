@@ -6,7 +6,7 @@
 #    By: slyu <slyu@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/10 14:25:00 by slyu              #+#    #+#              #
-#    Updated: 2022/01/10 15:05:59 by slyu             ###   ########.fr        #
+#    Updated: 2022/01/10 15:08:07 by slyu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,8 +61,7 @@ BONUSES = \
 ./srcs/ft_lstdelone.c \
 ./srcs/ft_lstclear.c \
 ./srcs/ft_lstiter.c \
-./srcs/ft_lstmap.c \
-
+./srcs/ft_lstmap.c
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUSES:.c=.o)
