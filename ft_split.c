@@ -94,27 +94,29 @@ static void	wordcpy(char *word, char const *s, char c, int turn)
 
 char	**ft_split(char const *s, char c)
 {
-	int		word_num;
-	int		letter_num;
-	char	**sentence;
+	int		num;
+	char	**sen;
 	int		i;
 
 	if (!s)
 		return (0);
-	word_num = count_word(s, c);
-	sentence = (char **) malloc(sizeof(char *) * (word_num + 1));
-	if (!sentence)
+	num = count_word(s, c);
+	sen = (char **) malloc(sizeof(char *) * (num + 1));
+	if (!sen)
 		return (0);
-	i = 0;
-	while (i < word_num)
+	i = -1;
+	while (++i < num)
 	{
-		letter_num = count_letter(s, c, i);
-		sentence[i] = (char *) malloc(sizeof(char) * (letter_num + 1));
-		if (!sentence[i])
+		sen[i] = (char *) malloc(sizeof(char) * (count_letter(s, c, i) + 1));
+		if (!sen[i])
+		{
+			while (--i >= 0)
+				free(sen[i]);
+			free(sen);
 			return (0);
-		wordcpy(sentence[i], s, c, i);
-		i++;
+		}
+		wordcpy(sen[i], s, c, i);
 	}
-	sentence[i] = 0;
-	return (sentence);
+	sen[i] = 0;
+	return (sen);
 }

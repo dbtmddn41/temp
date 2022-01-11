@@ -68,7 +68,6 @@ ifdef WITH_BONUS
 	OBJ_FILES = ${OBJS} ${BONUS_OBJS}
 else
 	OBJ_FILES = ${OBJS}
-endif
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
